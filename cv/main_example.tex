@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Jeramiah Carr
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -24,18 +23,19 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Jeramiah Carr - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
+\usepackage{needspace}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Jeramiah}{Carr}
+\address{Hickory, NC, USA}{}{}
+\phone[mobile]{828.320.9544}
+\email{jcarr@lmhglo.com}
+\extrainfo{\href{https://linkedin.com/in/jeramiahcarr}{LinkedIn}}
 
 \begin{document}
 
@@ -46,7 +46,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Technology executive with 17 years building mission-critical platforms across capital markets, FinTech, institutional trading, financial services, healthcare, manufacturing, and commercial real estate. Holds a Master of Business Analytics (Machine Learning) from Iowa State University and a Computer and Information Technology degree from Purdue. Most recently served as Head of Technology and Acting CTO at Blue Ocean Technologies, helping scale the first SEC-registered overnight equities ATS 10x in nightly notional volume. Combines hands-on engineering with enterprise AI governance, data architecture, and a track record of turning technology investment into business growth.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -56,15 +56,15 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{AI Strategy \& Governance}: LLM integration (ChatGPT, Claude Code), enterprise AI policy, cross-functional AI adoption in regulated environments
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{Technology Strategy \& Architecture}: High-availability trading infrastructure, enterprise data architecture, real-time/time-series data platforms (OneTick)
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Regulated FinTech Operations}: SEC/FINRA-regulated ATS operations, Reg SCI readiness, matching engine and clearing migrations, market surveillance (Eventus)
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Data \& Analytics Leadership}: Enterprise data warehousing, Tableau/Power BI/SAP Business Objects, ETL (Informatica), Python/SQL
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Team \& P\&L Leadership}: Built and scaled technology and analytics teams from founder-led to enterprise scale; department P\&L ownership
 
 \end{itemize}
 
@@ -76,32 +76,59 @@
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY-Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Blue Ocean Technologies ---
+\needspace{5\baselineskip}
+\item{\cventry{Sept 2022-Mar 2026}{Head of Technology (Acting CTO)}{Blue Ocean Technologies LLC}{Remote}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Led technology strategy and operations for the first SEC-registered ATS supporting overnight U.S. equities trading, under FINRA/SEC compliance
+    \item Reported directly to the CEO; led a 9-person technology organization across infrastructure, cloud ops, engineering, and client support
+    \item Helped scale overnight trading volume 10x, from approximately \$100M to over \$1B in nightly notional value
+    \item Directed the MEMX matching engine migration and Velox-to-RQD clearing migration; implemented a redundant disaster recovery site
+    \item Led enterprise AI governance and adoption (ChatGPT, Claude Code) for a regulated trading venue
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Technology & Data Consultant ---
+\needspace{5\baselineskip}
+\item{\cventry{Feb 2020-Sept 2022}{Technology \& Data Consultant}{Independent / Founder-Led Engagements}{Charlotte, NC}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Provided technology, analytics, and business consulting across healthcare, financial services, manufacturing, and commercial real estate
+    \item Developed PostgreSQL analytics platforms and Tableau reporting for Cancer Treatment Centers of America (Vidence) and TIAA
+    \item Founded and operated multiple businesses (e-commerce, wellness, manufacturing/retail), building teams of up to 33 employees
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Wells Fargo ---
+\needspace{5\baselineskip}
+\item{\cventry{Nov 2018-Feb 2020}{Fixed Income Data Architect / Data Scientist (Consultant)}{Wells Fargo}{Charlotte, NC}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Developed a firm-wide real-time big data strategy for Fixed Income Electronic Trading
+    \item Implemented OneTick time-series data infrastructure across Treasury, Municipal, and Equity trading environments
+    \item Served as primary liaison between trading desks and technology teams
+\end{itemize}}}
+
+\vspace{3pt}
+
+% --- Investor Management Services ---
+\needspace{5\baselineskip}
+\item{\cventry{Jan 2017-Oct 2018}{Head of Data \& Analytics (Director of Analytics)}{Investor Management Services}{Charlotte, NC}{}{\vspace{1pt}
+\begin{itemize}
+    \item Led a commercial real estate SaaS analytics platform (CRM, waterfall distribution, portfolio analytics) from concept to market
+    \item Grew the company's first analytics team from 1 to 5 members; managed 8 people across analytics and data; owned department P\&L
+    \item Built a machine learning (neural network) model to map charts of accounts across client datasets
+\end{itemize}}}
+
+\vspace{3pt}
+
+% --- John Deere ---
+\needspace{5\baselineskip}
+\item{\cventry{Jun 2009-Dec 2016}{Enterprise Data \& Analytics Roles (Lead Tableau Developer; Marketing Data Manager; Data Analyst/QA)}{John Deere}{Moline, IL / Des Moines, IA / Charlotte, NC}{}{\vspace{1pt}
+\begin{itemize}
+    \item Created the charter and secured \$1.2M funding for John Deere's first enterprise data mart; delivered 35+ reports reaching 27,000+ views
+    \item Built engineering-progress dashboards resulting in \$3M savings; automated 8 reconciliation processes, saving 30 hours/month
+    \item Created a VBA financial reconciliation tool saving dealers an average of 34 hours/month
 \end{itemize}}}
 
 \end{itemize}
@@ -114,14 +141,14 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
+\item{\cventry{2015-2017}{Master of Business Analytics (Machine Learning)}{Iowa State University, Ivy College of Business}{Ames, IA}{}{\vspace{1pt}
+STEM-designated program: regression models, machine learning methods, time-series forecasting, attribute selection, NLP, and data visualization. Tooling: Python, R/RStudio, SPSS Modeler, Weka.
 }}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
+\item{\cventry{2005-2009}{B.S. Computer and Information Technology - Data Management}{Purdue University, Purdue Polytechnic Institute}{West Lafayette, IN}{}{\vspace{1pt}
+Software development, systems architecture, database modeling and design, networking, and project management. Tooling: Oracle SQL, PL/SQL, C\#, Java.
 }}
 
 \end{itemize}
@@ -133,27 +160,7 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
-\end{itemize}
-
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item English (native).
 \end{itemize}
 
 % ============================================================

@@ -116,11 +116,11 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 **Create 2-3 profile statement templates for your main role types:**
 
 <!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For CTO / Head of Technology / VP Engineering roles:**
+> Technology executive with 17 years building mission-critical platforms across capital markets, FinTech, and institutional trading. Most recently served as Head of Technology and Acting CTO at Blue Ocean Technologies, leading a 9-person organization and helping scale overnight trading volume 10x, from approximately $100M to over $1B in notional value, on the first SEC-registered ATS for overnight U.S. equities. Combines hands-on engineering (Python, SQL, high-availability architecture) with regulatory fluency (SEC/FINRA/Reg SCI) and a track record of translating technology investment into measurable business growth.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For VP Data & Analytics / AI Strategy roles:**
+> Enterprise data and AI strategy leader with a Master of Business Analytics (Machine Learning) from Iowa State University and 17 years architecting data infrastructure across financial services, healthcare, manufacturing, and commercial real estate. Built John Deere's first enterprise data mart ($1.2M funded), architected firm-wide fixed income time-series infrastructure at Wells Fargo, and led enterprise AI governance and LLM adoption (ChatGPT, Claude Code) for a regulated trading venue. Brings both the technical depth to build the platform and the organizational judgment to govern how AI gets adopted responsibly.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

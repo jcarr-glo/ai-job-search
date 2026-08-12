@@ -60,9 +60,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Enterprise data architecture, real-time/time-series trading data platforms, technology strategy and executive leadership (CTO/Head of Technology), AI/LLM integration and governance, regulated FinTech/capital markets infrastructure, Python and SQL, Tableau/BI platforms
+**Moderate match areas:** Software engineering management (vs. hands-on IC engineering), cloud infrastructure (AWS/Azure), machine learning model-building (neural networks, predictive analytics), healthcare/manufacturing/real estate domain analytics
+**Weak match areas:** Deep hands-on software engineering at scale (large codebases, modern frameworks), formal DevOps/SRE, roles requiring a language other than English
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -74,9 +74,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** CTO / Head of Technology / VP Engineering roles in regulated FinTech and capital markets; VP/Director of Data & Analytics roles; enterprise data architecture and AI strategy leadership
+**Moderate:** Technology consulting, fractional CTO/advisory engagements, healthcare/manufacturing/commercial real estate analytics leadership
+**Entry-level:** Individual-contributor engineering roles (his career has been leadership/architecture-track since ~2013)
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -107,19 +107,20 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+<!-- [Inferred from resume executive summary - NEEDS USER CONFIRMATION] -->
+- Continue in senior technology executive roles (CTO/Head of Technology/VP Engineering) in regulated, mission-critical environments
+- Deepen enterprise AI strategy and governance leadership
+- Lead data/analytics organizations from a strategic, P&L-owning position
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
+- Tasks that energize: AI governance/strategy work, architecting infrastructure that enables new business/market entry, building and retaining high-performing teams
+- Tasks that drain: [NOT SPECIFIED BY USER - not inferable from resume/cover letter]
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: [NOT SPECIFIED BY USER - e.g. salary floor, financial runway]
+- **Flexibility**: Open to remote work (most recent role was fully remote)
+- **Professional development**: [NOT SPECIFIED BY USER]
 
 ### 6. Salary Benchmark (Optional)
 

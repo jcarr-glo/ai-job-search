@@ -16,26 +16,40 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 
 <!-- These are populated by /setup from your actual experience. Below are templates showing the format. -->
 
-### 1. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT - what was happening, what was the problem]
-**T:** [YOUR RESPONSIBILITY - what you specifically needed to do]
-**A:** [WHAT YOU DID - specific actions, tools, methods]
-**R:** [OUTCOME - measurable results, adoption, impact]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### 1. Scaling Blue Ocean's overnight trading platform 10x (executive leadership, scale execution)
+**S:** Blue Ocean Technologies operated the first SEC-registered Alternative Trading System for overnight U.S. equities trading, a new and unproven market segment starting at roughly $100M in nightly notional value.
+**T:** As Head of Technology and Acting CTO, reporting directly to the CEO, responsible for the infrastructure and organization needed to grow that volume without compromising the FINRA/SEC-regulated platform's reliability.
+**A:** Led a 9-person technology organization; directed the matching engine migration to MEMX and clearing migration from Velox to RQD; implemented a fully redundant disaster recovery site; built out high-availability infrastructure (hot-hot architecture, Datadog observability) to support growing broker-dealer and institutional participant volume across North America, Europe, and Asia.
+**R:** Nightly notional volume scaled 10x, from approximately $100M to over $1B, while maintaining regulatory compliance and platform stability.
+**Use for:** "Tell me about a time you scaled a system/organization", "Describe your experience in a regulated environment", "Tell me about leading through growth"
 
-### 2. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### 2. Founding John Deere's first enterprise data mart (technical vision, securing buy-in)
+**S:** John Deere's customer and product data was fragmented across business divisions, with no centralized platform to support autonomous vehicle initiatives or enterprise-wide KPIs.
+**T:** As Lead Tableau Developer for the Intelligent Solutions Group, needed to make the case for and deliver the company's first enterprise data mart.
+**A:** Wrote the project charter, secured $1.2M in funding, and architected the data integration (MySQL, Informatica ETL, Google Analytics, Adobe Analytics) consolidating call center, sales, demographic, and equipment telemetry data across 8 sources and 5M+ records.
+**R:** Delivered a centralized reporting and analytics platform that supported autonomous vehicle initiatives and enterprise decision-making, and produced 35+ downstream reports reaching 27,000+ views.
+**Use for:** "Tell me about a project you had to pitch/fund", "Describe building something from zero", "Tell me about a time you influenced without direct authority"
 
-### 3. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### 3. Establishing AI governance at a regulated trading venue (responsible AI adoption)
+**S:** Blue Ocean wanted to adopt ChatGPT and Claude Code across its engineering organization, but the company operated a FINRA/SEC-regulated trading venue where ungoverned tool adoption carried compliance risk.
+**T:** As the primary technology representative for regulatory engagements, needed to enable AI adoption without creating compliance exposure.
+**A:** Established enterprise AI governance policies and usage standards covering LLM integration, data handling, and appropriate use cases; led adoption of the tools across the engineering organization within those guardrails.
+**R:** Enabled organization-wide AI tool adoption (including Claude Code for engineering work) while supporting, rather than jeopardizing, regulatory compliance.
+**Use for:** "How have you approached AI adoption on your team?", "Tell me about balancing innovation with compliance/risk", "Describe your AI governance philosophy"
+
+### 4. Building the first analytics team at Investor Management Services (team building, P&L ownership)
+**S:** IMS had no dedicated analytics function; reporting and portfolio review for a commercial real estate SaaS product were manual.
+**T:** As Head of Data & Analytics / Director of Analytics, needed to build a team and a product from scratch, and own the department's P&L.
+**A:** Grew the analytics function from a single person to a 5-member team (8 across analytics and data combined); led development of a CRM and automated waterfall distribution/portfolio analytics platform from concept to market; automated previously manual investment reporting.
+**R:** Took the analytics function from zero to a shipped SaaS product line with a dedicated, retained team - while owning the department's financial performance.
+**Use for:** "Tell me about building a team from scratch", "Describe a time you owned a budget/P&L", "Tell me about taking a product from concept to market"
+
+### 5. Cross-asset data strategy at Wells Fargo (stakeholder alignment, technical liaison)
+**S:** Wells Fargo's Fixed Income Electronic Trading desks needed a firm-wide, real-time data strategy, but requirements had to be gathered directly from trading floors across multiple asset classes with competing priorities.
+**T:** As Fixed Income Data Architect / Data Scientist, served as the primary liaison between trading desks and technology teams.
+**A:** Implemented OneTick time-series infrastructure as a centralized data repository capturing reference data, quotes, trades, and orders across Treasury, Municipal, and Equity trading; designed shared data schemas and enterprise data dictionaries so different desks could work from consistent definitions.
+**R:** Delivered a firm-wide, cross-asset real-time data platform and reporting capability adopted across multiple trading desks.
+**Use for:** "Tell me about aligning stakeholders with competing priorities", "Describe translating business requirements into technical architecture", "Tell me about working in a highly regulated industry"
 
 <!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
 

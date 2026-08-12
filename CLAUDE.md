@@ -1,10 +1,10 @@
-# Job Application Assistant for [YOUR_NAME]
+# Job Application Assistant for Jeramiah Carr
 
 <!-- SETUP: This file is populated by running /setup -->
 <!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Jeramiah Carr, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -16,76 +16,103 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 <!-- This section is auto-populated by /setup. You can also fill it in manually. -->
 
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Jeramiah Carr
+- **Location:** Hickory, NC, USA (open to remote — most recent role was fully remote; Charlotte, NC metro also acceptable)
+- **Phone:** 828.320.9544
+- **Email:** jcarr@lmhglo.com
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
+  | English | Native |
   <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
   working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
   undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
   lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
   04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  <!-- [Inferred - source docs list no languages; defaulted to English/Native as a US-based candidate. Add any others you work in.] -->
+- **CV language:** English <!-- English unless your market expects otherwise; /setup asks -->
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Actively seeking new opportunities (most recent role, Head of Technology at Blue Ocean Technologies, ended March 2026)
+- **LinkedIn headline:** "Technology Executive | FinTech & Trading Infrastructure | Enterprise Data & AI Strategy | Real-Time Data Platforms"
 
 ### Education
 <!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **Master of Business Analytics (Machine Learning)** (2015-2017) - Iowa State University, Ivy College of Business
+  - STEM-designated program: regression models, ML methods, time-series forecasting, attribute selection, NLP, data visualization
+  - Tooling: Python, R/RStudio, SPSS Modeler, Weka, Excel
+- **B.S. Computer and Information Technology - Data Management** (2005-2009) - Purdue University, Purdue Polytechnic Institute
+  - Software development, systems architecture, database modeling and design, networking, project management
+  - Tooling: Oracle SQL, PL/SQL, C#, XHTML, Java
 
 ### Professional Experience
 <!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Head of Technology (Acting CTO)** (Sept 2022 - March 2026) - **Blue Ocean Technologies LLC** (Remote)
+  - Led technology strategy, architecture, and operations for the first SEC-registered Alternative Trading System (ATS) supporting overnight U.S. equities trading (8PM-4AM ET) under FINRA/SEC compliance
+  - Reported directly to the CEO; led a 9-person technology organization across infrastructure, cloud ops, engineering, and client support
+  - Helped scale overnight trading volume 10x, from approximately $100M to over $1B in nightly notional value
+  - Directed matching engine migration (to MEMX) and clearing migration (Velox to RQD); implemented a redundant DR site
+  - Led adoption of enterprise AI tools (ChatGPT, Claude Code), establishing governance policy for a regulated trading venue
+- **Technology & Data Consultant** (Feb 2020 - Sept 2022) - **Independent / Founder-Led Engagements** (Charlotte, NC)
+  - Provided technology, analytics, and business consulting across healthcare, financial services, manufacturing, and commercial real estate
+  - Delivered PostgreSQL analytics platforms and Tableau reporting for Cancer Treatment Centers of America (Vidence) and TIAA
+  - Founded and operated multiple businesses (e-commerce, wellness, manufacturing/retail), building teams of up to 33 employees
+- **Fixed Income Data Architect / Data Scientist (Consultant)** (Nov 2018 - Feb 2020) - **Wells Fargo** (Charlotte, NC)
+  - Developed a firm-wide real-time big data strategy for Fixed Income Electronic Trading
+  - Implemented OneTick time-series data infrastructure across Treasury, Municipal, and Equity trading environments
+  - Served as primary liaison between trading desks and technology teams
+- **Head of Data & Analytics (Director of Analytics)** (Jan 2017 - Oct 2018) - **Investor Management Services** (Charlotte, NC)
+  - Led a commercial real estate SaaS analytics platform (CRM, waterfall distribution processing, portfolio analytics) from concept to market
+  - Grew the company's first analytics team from 1 to 5 members; managed analytics and data teams totaling 8 people; owned department P&L
+  - Built a machine learning (neural network) model to map charts of accounts across client datasets
+- **Enterprise Data & Analytics Roles** (Jun 2009 - Dec 2016) - **John Deere** (Moline, IL / Des Moines, IA / Charlotte, NC)
+  - Lead Tableau Developer, Intelligent Solutions Group: created the charter and secured $1.2M funding for John Deere's first enterprise data mart; created 35+ reports reaching 27,000+ views
+  - Marketing Data Manager, John Deere Parts: improved data integrity on 4M+ rows; automated 8 reconciliation processes, saving 30 hours/month
+  - Data Analyst / Reporting Analyst / QA: built engineering dashboards resulting in $3M savings; created a VBA reconciliation tool saving dealers 34 hours/month
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Python, SQL, enterprise data architecture, real-time/time-series data platforms (OneTick), trading systems infrastructure, AI/LLM integration and governance (ChatGPT, Claude Code), machine learning (predictive analytics, NLP, time-series forecasting)
+- **Secondary:** C#, R, PL/SQL, VBA, PHP, HTML/CSS, Objective-C, ETL (Informatica), Kafka, FIX connectivity
+- **Domain:** Capital markets and institutional trading, FinTech, regulated financial services (SEC/FINRA/Reg SCI), enterprise data warehousing, healthcare analytics, manufacturing analytics, commercial real estate SaaS
+- **Software:** AWS, Azure, MySQL, PostgreSQL, Oracle, IBM DB2, IBM Netezza, Amazon Redshift, Tableau & Tableau Server, Power BI, SAP Business Objects, Google Analytics/Adobe Analytics, Jira, Confluence, Microsoft Project, Datadog, Okta
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+<!-- None formally listed in source documents. -->
+- None on file - add any professional certifications here.
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+<!-- None found in source documents. -->
+- None on file.
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+<!-- No formal awards section in source documents; notable funded/measurable achievements are captured under Professional Experience instead (e.g. $1.2M data mart charter, $3M savings dashboard). -->
+- None on file.
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+<!-- [Inferred from resume executive summary and cover letter voice - no formal assessment (PI/DISC/Myers-Briggs) was provided. Review and refine.] -->
+- **Operator's discipline** - Leads hands-on even at the executive level; still writes Python and designs database tables alongside running a 9-person org
+- **Calm under regulatory/operational pressure** - Managed incidents affecting live trading and regulator communications in an SEC/FINRA-regulated environment
+- **People- and culture-first leadership** - Treats retention of strong performers as the highest-ROI investment; views culture as growth infrastructure, not a soft add-on
+- **Strengths:** Translating technology investment into business growth; enterprise architecture in high-availability/regulated environments; cross-functional alignment (engineering, product, sales, ops around shared KPIs); scaling teams from founder-led to enterprise
+- **Growth areas:** Years in senior executive/strategy roles have shifted time away from individual-contributor engineering work - frame as intentional evolution toward strategic leadership, backed by continued hands-on Python/SQL work
+- **Thrives in:** Mission-critical, regulated, high-stakes environments where reliability and security matter; small, high-trust technology teams with direct executive access; environments that value both hands-on technical credibility and strategic vision
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+<!-- [Inferred from the candidate's own executive summary language.] -->
+- Enterprise AI strategy and governance - hands-on LLM adoption (ChatGPT, Claude Code) done responsibly, not as hype
+- Turning technology investment into measurable business growth and new market entry
+- Building and retaining high-performing teams; designing culture as deliberate infrastructure
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- FinTech / Capital Markets: trading platforms, ATS/exchange operators, broker-dealers, market data and clearing providers
+- Enterprise Data & AI Strategy: consulting, enterprise architecture, data platform vendors
+- Adjacent: healthcare analytics, manufacturing/industrial data, commercial real estate SaaS
 
 ### Deal-breakers
 <!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+automatically from your Languages table above - don't duplicate them here.
+NOT YET SPECIFIED BY USER - source documents (resume/cover letter) do not state these.
+Please confirm or add your actual deal-breakers; nothing has been assumed here. -->
+- [NEEDS USER INPUT - not inferable from resume/cover letter]
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
