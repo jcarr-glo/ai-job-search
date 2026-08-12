@@ -39,7 +39,7 @@ Sixty-nine tailored applications, twenty first interviews, and one signed contra
 
 ## What this is
 
-A structured workflow that turns Claude Code into a full-stack job application assistant. The core workflow (self-profiling, fit evaluation, and the drafter-reviewer application pipeline) is **language- and country-agnostic**. The job portal search skills are built for the Danish market (Jobindex, Jobnet, Akademikernes Jobbank, etc.), but the pattern is designed to be swapped for your local job boards.
+A structured workflow that turns Claude Code into a full-stack job application assistant. The core workflow (self-profiling, fit evaluation, and the drafter-reviewer application pipeline) is **language- and country-agnostic**. It ships two country-agnostic job portal search skills (LinkedIn, a tech-job aggregator) plus two US-market examples added the same way (a remote-jobs board, a financial-services niche board), and the pattern is designed to be swapped or extended for your local job boards via `/add-portal`.
 
 ```
 /setup          /scrape              /apply <url>
@@ -71,69 +71,21 @@ The framework encodes career guidance best practices, including structured evalu
 
 > 🎥 **Prefer to see it in action first?** [The Next New Thing did a hands-on walkthrough](https://www.youtube.com/watch?v=HoVxjMNFYv4) of how the workflow is actually used, from setup to a finished application (recorded August 2026 - commands may have evolved since).
 
-### 1. Fork and clone
-
 ```bash
 gh repo fork MadsLorentzen/ai-job-search --clone
 cd ai-job-search
-```
-
-### 2. Install job search tools
-
-PowerShell:
-
-```powershell
-$tools = @("jobbank-search", "jobdanmark-search", "jobindex-search", "jobnet-search", "linkedin-search", "freehire-search")
-foreach ($tool in $tools) {
-  Push-Location ".agents/skills/$tool/cli"
-  bun install
-  Pop-Location
-}
-```
-
-Bash / zsh / Git Bash:
-
-```bash
-for tool in jobbank-search jobdanmark-search jobindex-search jobnet-search linkedin-search freehire-search; do
-  (cd .agents/skills/$tool/cli && bun install)
-done
-```
-
-For `linkedin-search` and `freehire-search` the install is optional: both have zero runtime dependencies and run with plain `bun`; `bun install` only pulls TypeScript dev types.
-
-### 3. Set up your profile
-
-```bash
 claude
-# Then inside Claude Code:
-/setup
 ```
 
-`/setup` offers three paths: read your `documents/` folder if you have one populated (CV PDF, LinkedIn export, diplomas, reference letters, past applications), import a single CV pasted in chat, or walk through an interview. It auto-detects what you have and asks. Documents-folder mode is idempotent and safe to re-run as you add more material; see `documents/README.md` for the layout.
+Then, inside Claude Code:
 
-### 4. Search for jobs
+1. **`/setup`** - build your profile from a `documents/` folder, a pasted CV, or an interview.
+2. **`/scrape`** - search job portals for matches, deduplicated and sorted by fit.
+3. **`/apply <url or pasted posting>`** - evaluate fit, draft CV + cover letter, review with a second agent, revise, and present the final output.
 
-```bash
-/scrape
-```
+Job postings are treated as untrusted input (no instructions embedded in them are followed, no links from their body are fetched) - see [SECURITY.md](SECURITY.md).
 
-This searches multiple job portals for positions matching your profile, deduplicates results, and presents them sorted by fit. Pick a match to run `/apply` on it directly — or, when a scrape returns more jobs than you want to eyeball, run `/rank` to batch-score them all against the fit framework and get a ranked shortlist first.
-
-### 5. Apply to a job
-
-```bash
-/apply https://jobindex.dk/job/1234567
-```
-
-If the URL can't be fetched (some job portals block automated access), you can paste the job description directly instead:
-
-```bash
-/apply <paste the full job description here>
-```
-
-This runs the full workflow: evaluate fit, draft CV + cover letter, review with a second agent, revise, and present the final output.
-
-Postings are treated as untrusted input (the workflow follows no instructions embedded in them and fetches no links from their body), but agentic defenses are instruction-level, not a sandbox - on an unfamiliar job board, skim what was fetched and written before you hit send. Details in [SECURITY.md](SECURITY.md).
+Full prerequisites, portal CLI installs, and troubleshooting: [SETUP.md](SETUP.md).
 
 ## Other commands
 
@@ -185,12 +137,10 @@ ai-job-search/
 │   │   └── upskill/                   # /upskill skill gap analysis and learning plan
 │   └── settings.json                  # Claude Code permissions (shared, scoped)
 ├── .agents/skills/                    # Job portal CLI tools
-│   ├── jobbank-search/                # Akademikernes Jobbank (Denmark)
-│   ├── jobdanmark-search/             # Jobdanmark.dk (Denmark)
-│   ├── jobindex-search/               # Jobindex.dk (Denmark)
-│   ├── jobnet-search/                 # Jobnet.dk (Denmark, government portal)
 │   ├── linkedin-search/               # LinkedIn public job listings (country-agnostic)
-│   └── freehire-search/               # freehire.me tech job aggregator (multi-market, REST API)
+│   ├── freehire-search/               # freehire.me tech job aggregator (multi-market, REST API)
+│   ├── weworkremotely-search/         # We Work Remotely (remote-focused board)
+│   └── efinancialcareers-search/      # eFinancialCareers (FinTech/capital markets niche board, personal use only)
 ├── cv/
 │   └── main_example.tex               # moderncv LaTeX template
 ├── cover_letters/
@@ -289,7 +239,7 @@ If you prefer doing it by hand, the manual route still works: update the guidanc
 
 ### Job search tools
 
-The four Danish CLI tools in `.agents/skills/` (Jobbank, Jobdanmark, Jobindex, Jobnet) demonstrate the pattern for building a job-portal integration for a specific market. If you're in a different country, run:
+The repo ships four portal skills in `.agents/skills/` as worked examples of the pattern (see below) - two country-agnostic, two US-market. If your market needs a dedicated local job board, run:
 
 ```
 /add-portal
@@ -299,10 +249,14 @@ Give it your local job board's URL. The command investigates the portal (search-
 
 Maintaining a fork adapted to your market or language? Add it to the [Community forks & adaptations](https://github.com/MadsLorentzen/ai-job-search/discussions/78) thread so others can find it.
 
-For **country-agnostic** starting points outside Denmark, the repo ships two portal skills alongside the Danish demos:
+The four shipped portal skills:
 
 - **`linkedin-search`** — built on LinkedIn's public, unauthenticated `jobs-guest` endpoints. Field-agnostic, **zero runtime dependencies** (runs with just `bun`), and takes the search location as an explicit flag, so it works for any market out of the box (`-l "Berlin, Germany"`, `-l "Mumbai, Maharashtra, India"`, `-l "Remote"`, …). Intended for **personal use only** — automated access is against LinkedIn's Terms of Service, so keep volume low. See `.agents/skills/linkedin-search/SKILL.md`.
-- **`freehire-search`** — queries the [freehire.me](https://freehire.me) aggregator's public REST API (JSON, no API key). Tech-focused (software, data, engineering, DevOps, remote), multi-market via facet flags (`--region`, `--country`, `--remote`), and **zero runtime dependencies**. Unlike the HTML-scraping Danish portals, results come back structured (skills, seniority, category). The backend is MIT-licensed and [self-hostable](https://github.com/strelov1/freehire) — point `FREEHIRE_API_URL` at your own instance if you prefer. See `.agents/skills/freehire-search/SKILL.md`.
+- **`freehire-search`** — queries the [freehire.me](https://freehire.me) aggregator's public REST API (JSON, no API key). Tech-focused (software, data, engineering, DevOps, remote), multi-market via facet flags (`--region`, `--country`, `--remote`), and **zero runtime dependencies**, with results coming back structured (skills, seniority, category) rather than scraped from HTML. The backend is MIT-licensed and [self-hostable](https://github.com/strelov1/freehire) — point `FREEHIRE_API_URL` at your own instance if you prefer. See `.agents/skills/freehire-search/SKILL.md`.
+- **`weworkremotely-search`** — HTML-parsing CLI over [weworkremotely.com](https://weworkremotely.com)'s public, unauthenticated listings (`robots.txt` allows it, no restrictive ToS found — no personal-use warning needed). Remote-focused, **zero runtime dependencies**. Location has no dedicated query parameter on this board, so fold it into `--query`. See `.agents/skills/weworkremotely-search/SKILL.md`.
+- **`efinancialcareers-search`** — HTML/JSON-LD-parsing CLI over [eFinancialCareers](https://www.efinancialcareers.com), a niche board for financial-services and capital-markets roles. `robots.txt` permits the endpoints used, but eFinancialCareers' Terms & Conditions prohibit automated access, so this one is **personal use only** — keep volume low. See `.agents/skills/efinancialcareers-search/SKILL.md`.
+
+Both `weworkremotely-search` and `efinancialcareers-search` were added via `/add-portal`; a third candidate (Dice) was investigated and declined because its `robots.txt` explicitly disallows the search-query path — it stays a `site:dice.com` WebSearch fallback query instead (see `.claude/skills/job-scraper/search-queries.md`), which is what `/add-portal` does when a portal's own access rules rule out a CLI.
 
 ### Extending the framework: portals, templates, criteria - and borrowing from other forks
 
@@ -360,10 +314,6 @@ The framework supports two distinct modes of job searching:
 - **Latent opportunity discovery:** By analyzing your full history (not just job titles, but the actual work you did), the system can surface career paths you haven't considered. Transferable skills that map to unexpected industries, patterns in what you enjoyed or excelled at, or emerging roles that combine your domain expertise with new technology.
 
 To get the most from this, invest time during `/setup` in describing not just your experience, but what energized you, what drained you, and what you'd want more of. This context directly shapes how the system evaluates fit and which roles it surfaces during `/scrape`.
-
-## Contributing
-
-Thinking about a PR? Read [CONTRIBUTING.md](CONTRIBUTING.md) first - it explains what gets merged, what lives in forks, and why.
 
 ## Acknowledgements
 

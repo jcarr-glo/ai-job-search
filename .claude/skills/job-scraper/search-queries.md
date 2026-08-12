@@ -4,7 +4,7 @@
 
 ## Installed portal CLIs (primary for `/scrape`)
 
-`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
+`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped CLIs include `linkedin-search`, `freehire-search`, `weworkremotely-search`, and `efinancialcareers-search`; any skill you add with `/add-portal` is included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
 
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
@@ -12,66 +12,87 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary (dedicated CLIs - no `site:` query needed, `/scrape` runs these automatically):
+- **linkedin.com/jobs** - LinkedIn job listings (filter: USA / North Carolina / Remote); covered by `linkedin-search` CLI
+- Also covered by the country-agnostic `freehire-search` CLI
+- **efinancialcareers.com** - niche board for FinTech/capital markets leadership roles, high relevance to this profile; covered by `efinancialcareers-search` CLI. **Personal use only** - their ToS prohibits automated access even though `robots.txt` permits the endpoints used; keep volume low (see `SKILL.md` for the full warning).
+- **weworkremotely.com** - remote-focused board; covered by `weworkremotely-search` CLI (clean `robots.txt` allow, no ToS restriction found)
+
+WebSearch fallback (no dedicated CLI - `site:` queries below cover these):
+- **indeed.com** - general US job board
+- **dice.com** - US tech-jobs board. **No CLI was built**: `robots.txt` explicitly disallows the search-query path (`/jobs?q*`) even though detail pages are allowed, so a `/add-portal` attempt stopped at the access-rules gate rather than scaffold a ToS-violating skill.
+- **ziprecruiter.com** - general US job board
+- **glassdoor.com** - general job board with company reviews
+- **builtin.com** - tech/startup-focused board with metro editions (BuiltIn NYC, Chicago, etc.)
+- **wellfound.com** (formerly AngelList Talent) - startup-focused board, remote-friendly listings
+- **theladders.com** - executive-focused board ($100k+ roles), high relevance to this profile's seniority
+- **web3.career** - crypto/web3-focused board; tangential relevance given Blue Ocean's tokenized-equities/DTCC-aligned work
 
 Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+- Direct Google searches with `site:` filters for known target companies (FinTech/trading platforms, enterprise data/AI consultancies - no specific target companies confirmed yet, add here as identified)
 
 ## Query Categories
 
 Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: Technology Executive (CTO / Head of Technology / VP Engineering)
 
 These match your strongest and most desired career direction.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
+site:linkedin.com/jobs "Chief Technology Officer" Remote
+site:linkedin.com/jobs "Head of Technology" FinTech
+site:linkedin.com/jobs "VP of Engineering" trading OR FinTech
+site:indeed.com "Chief Technology Officer" "North Carolina" OR Remote
+site:theladders.com "Chief Technology Officer" OR "Head of Technology" Remote
+site:ziprecruiter.com "VP of Engineering" FinTech OR Remote
+site:glassdoor.com "Chief Technology Officer" Remote
+site:dice.com "Chief Technology Officer" OR "VP Engineering"
+site:efinancialcareers.com "Head of Technology" OR "Chief Technology Officer"
 ```
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
+### Priority 2: Enterprise Data & AI Strategy
 
 These match your domain expertise.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:linkedin.com/jobs "VP of Data" OR "Director of Data" AI governance
+site:linkedin.com/jobs "Head of Data and Analytics" Remote
+site:linkedin.com/jobs "Enterprise AI Strategy" OR "AI Governance" leadership
+site:indeed.com "data architecture" "AI strategy" North Carolina OR Remote
+site:builtin.com "VP of Data" OR "Head of Data" Remote
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+### Priority 3: Technology Consulting / Fractional Leadership
 
 Adjacent roles you could pivot into.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:linkedin.com/jobs "Fractional CTO" OR "Technology Consultant" FinTech
+site:linkedin.com/jobs "Technology Advisor" trading OR capital markets
+site:wellfound.com "Fractional CTO" OR "Technology Advisor" Remote
+site:weworkremotely.com "Engineering Manager" OR "CTO" Remote
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 4: Broader Capital Markets / FinTech Technology
 
-Wider net for general technical roles.
+Wider net for general technical leadership roles in regulated finance.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "trading infrastructure" leadership Remote
+site:linkedin.com/jobs "Alternative Trading System" OR ATS technology leadership
+site:indeed.com "capital markets" "technology leadership" Remote
+site:web3.career "Chief Technology Officer" OR "Head of Technology" tokenization OR trading
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+When evaluating results, verify the job location is within reasonable commute distance from your home, or fully remote. Define acceptable areas:
+- Hickory, NC and surrounding areas (ideal)
+- Charlotte, NC metro (acceptable)
+- Remote (US-based) (ideal - most recent role was fully remote)
+- Other major US metros requiring relocation (borderline - discuss with user before applying)
+- Roles requiring international relocation (too far)
 
 ## Language Filter
 
