@@ -17,7 +17,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ### Identity
 - **Name:** Jeramiah Carr
-- **Location:** Hickory, NC, USA (open to remote — most recent role was fully remote; Charlotte, NC metro also acceptable)
+- **Location:** Hickory, NC, USA (open to remote, relocation, or on-site — no location constraints; willing to move anywhere for the right role)
 - **Phone:** 828.320.9544
 - **Email:** jcarr@lmhglo.com
 - **Languages:**

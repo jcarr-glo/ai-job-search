@@ -35,9 +35,37 @@ Secondary (company career pages via Google):
 
 Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
 
-### Priority 1: Technology Executive (CTO / Head of Technology / VP Engineering)
+### Priority 1: Data, Analytics & AI Strategy
 
-These match your strongest and most desired career direction.
+These match your strongest and most desired career direction - Analytics, Data, and Strategy leadership.
+
+```
+site:linkedin.com/jobs "VP of Data" OR "Director of Data" AI governance
+site:linkedin.com/jobs "Head of Data and Analytics" Remote
+site:linkedin.com/jobs "VP of Analytics" OR "Head of Analytics" Remote
+site:linkedin.com/jobs "Chief Data Officer" OR "Chief Analytics Officer"
+site:linkedin.com/jobs "Enterprise AI Strategy" OR "AI Governance" leadership
+site:indeed.com "data architecture" "AI strategy" North Carolina OR Remote
+site:builtin.com "VP of Data" OR "Head of Data" Remote
+site:efinancialcareers.com "VP of Data" OR "Head of Analytics" OR "Chief Data Officer"
+site:theladders.com "VP of Analytics" OR "Chief Data Officer" Remote
+```
+
+### Priority 2: Product
+
+These match your Product strength - especially data-product and platform-product framing, where Product overlaps with your data and analytics background.
+
+```
+site:linkedin.com/jobs "VP of Product" OR "Head of Product" data OR analytics
+site:linkedin.com/jobs "Director of Product" "data platform" OR "data products"
+site:linkedin.com/jobs "VP of Product" FinTech OR trading
+site:indeed.com "VP of Product" "data platform" Remote
+site:theladders.com "VP of Product" OR "Head of Product" Remote
+```
+
+### Priority 3: Technology Executive (CTO / Head of Technology / VP Engineering)
+
+Real experience (Blue Ocean) but a secondary direction relative to Data, Analytics, Strategy, and Product.
 
 ```
 site:linkedin.com/jobs "Chief Technology Officer" Remote
@@ -51,19 +79,7 @@ site:dice.com "Chief Technology Officer" OR "VP Engineering"
 site:efinancialcareers.com "Head of Technology" OR "Chief Technology Officer"
 ```
 
-### Priority 2: Enterprise Data & AI Strategy
-
-These match your domain expertise.
-
-```
-site:linkedin.com/jobs "VP of Data" OR "Director of Data" AI governance
-site:linkedin.com/jobs "Head of Data and Analytics" Remote
-site:linkedin.com/jobs "Enterprise AI Strategy" OR "AI Governance" leadership
-site:indeed.com "data architecture" "AI strategy" North Carolina OR Remote
-site:builtin.com "VP of Data" OR "Head of Data" Remote
-```
-
-### Priority 3: Technology Consulting / Fractional Leadership
+### Priority 4: Technology Consulting / Fractional Leadership
 
 Adjacent roles you could pivot into.
 
@@ -74,9 +90,9 @@ site:wellfound.com "Fractional CTO" OR "Technology Advisor" Remote
 site:weworkremotely.com "Engineering Manager" OR "CTO" Remote
 ```
 
-### Priority 4: Broader Capital Markets / FinTech Technology
+### Priority 5: Broader Capital Markets / FinTech Technology
 
-Wider net for general technical leadership roles in regulated finance.
+Wider net for general technical leadership roles in regulated finance. Runs only on `/scrape broad`.
 
 ```
 site:linkedin.com/jobs "trading infrastructure" leadership Remote
@@ -87,12 +103,7 @@ site:web3.career "Chief Technology Officer" OR "Head of Technology" tokenization
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home, or fully remote. Define acceptable areas:
-- Hickory, NC and surrounding areas (ideal)
-- Charlotte, NC metro (acceptable)
-- Remote (US-based) (ideal - most recent role was fully remote)
-- Other major US metros requiring relocation (borderline - discuss with user before applying)
-- Roles requiring international relocation (too far)
+No location constraints - the candidate is willing to relocate anywhere (domestic or international) for the right role, and remote is also fine. Do not filter or flag results by location; evaluate purely on role fit.
 
 ## Language Filter
 

@@ -15,7 +15,7 @@ framework_version: 1.1.1
 - **LinkedIn:** linkedin.com/in/jeramiahcarr
 - **GitHub:** (none on file)
 - **Status:** Actively seeking new opportunities (most recent role ended March 2026)
-- **Constraints:** Open to remote (most recent role was fully remote); Charlotte, NC metro also acceptable
+- **Constraints:** None — open to remote, relocation, or on-site roles anywhere
 
 ### Languages
 <!-- Every language you can work in professionally, with your honest level. Used by the
