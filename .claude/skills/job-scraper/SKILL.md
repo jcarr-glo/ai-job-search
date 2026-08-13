@@ -134,6 +134,7 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
       "title": "...",
       "company": "...",
       "url": "...",
+      "posted": "YYYY-MM-DD or null if undetermined",
       "first_seen": "YYYY-MM-DD",
       "fit": "high/medium/low",
       "status": "new/skipped/ranked/expired",
@@ -144,6 +145,8 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
 ```
 
 The `portal` field records which CLI skill produced the job (results are already tagged per portal in Step 1b - persist that tag here). Entries written before this field existed lack it; the health check (Step 4.75) attributes those by matching the URL's domain against each portal's base URL, so do not backfill.
+
+The `posted` field is the posting's own date, taken directly from the CLI's/WebSearch's `date` field already extracted in Step 1b/Step 2 - distinct from `first_seen`, which is when this scraper run discovered it. Use `null` when a posting date could not be determined (see Date Filter). Entries written before this field existed lack it; do not backfill by guessing.
 
 `/rank` extends this schema additively: ranked entries also carry `rank_score` (0–100 overall score), `rank_verdict` (fit band, e.g. "strong fit"), `rank_date` (ISO date of ranking), and `strengths`/`gaps` (1-3 verbatim bullets each, copied from the scoring agent's findings). The `status` field is set to `"ranked"`. Do not drop any of these fields when re-writing entries. Entries ranked before `strengths`/`gaps` existed simply lack them; readers tolerate their absence and never backfill by guessing.
 
@@ -210,9 +213,9 @@ skipped (disabled): <portal-name>, <portal-name>
 health: <portal-name> - degraded (company null on all 12 results); parsing anchors in .agents/skills/<portal-name>/url-reference.md
 health: <portal-name> - broken (0 results for the SKILL.md test query and a broader retry); parsing anchors in .agents/skills/<portal-name>/url-reference.md
 
-| # | Fit | Title | Company | Location | Deadline | URL |
-|---|-----|-------|---------|----------|----------|-----|
-| 1 | High | ... | ... | ... | ... | [Link](...) |
+| # | Fit | Title | Company | Location | Posted | Deadline | URL |
+|---|-----|-------|---------|----------|--------|----------|-----|
+| 1 | High | ... | ... | ... | YYYY-MM-DD | ... | [Link](...) |
 
 If Step 2.5 flagged a mass-posting pattern, note it in the Title cell (e.g. "Frontend Developer (posted in 6 cities)") rather than burying it. Do the same for a declared-language-insufficient-level flag from the Language Gate (e.g. "Backend Engineer ⚠ fluent English required") - both are signals the user should see at a glance, not just in the detail highlights below.
 
