@@ -4,7 +4,7 @@ You are batch-scoring the jobs that `/scrape` has collected, so the user can dec
 
 `/rank` produces **triage scores**, not final evaluations. It scores from the posting text and the candidate profile only - no company research, no reviewer agent. `/apply`'s Step 1 evaluation (which adds company research) remains authoritative and always re-runs when the user applies.
 
-After presenting the shortlist, `/rank` also emails the candidate a top-10 digest automatically (Step 6) - no flag needed, and no separate command to remember to run.
+After presenting the shortlist, `/rank` also emails the candidate a digest automatically (Step 6) - no flag needed, and no separate command to remember to run. The digest includes only **Strong Fit** and **Good Fit** jobs, ordered by score.
 
 Follow these steps **in order**.
 
@@ -141,12 +141,12 @@ Confirm a Gmail MCP tool with **send** capability (`mcp__claude_ai_Gmail__*` - l
 
 ### Step 6b: Build the digest
 
-Query `job_scraper/seen_jobs.json` for every entry with `"status": "ranked"` - across **all** runs, not just this one - excluding anything vetoed (`location: "FAIL"` or `language_gate: "FAIL"` from any run) or `"status": "expired"`. Sort by `rank_score` descending and take the top `min(10, count)`.
+Query `job_scraper/seen_jobs.json` for every entry with `"status": "ranked"` - across **all** runs, not just this one - excluding anything vetoed (`location: "FAIL"` or `language_gate: "FAIL"` from any run) or `"status": "expired"`. **Filter to `rank_verdict` of `"Strong Fit"` or `"Good Fit"` only** - Moderate/Weak/Poor Fit jobs never go in the email, regardless of score. Sort the remainder by `rank_score` descending. No fixed cap - the verdict filter already bounds the list; if it's empty, skip Step 6c and tell the user "No Strong/Good Fit jobs to email this run" instead of sending an empty digest.
 
 Compose the email:
 - **To:** the email address in the candidate's Identity section (`01-candidate-profile.md` / `CLAUDE.md`) - read it from there each time, never hardcode an address in this file.
-- **Subject:** `Job Ranking Digest - Top <N> - YYYY-MM-DD` (today's date, N = however many rows this run actually has).
-- **Body:** an HTML table, same columns as the Step 5 shortlist table (Score, Verdict, Title, Company, Location, Deadline, Link), one row per job in score order. Below the table, one line per job with its top strength and top gap (`strengths[0]` / `gaps[0]` from `seen_jobs.json`) so the email is useful without opening the app. Include the same triage caveat Step 5 states: these are triage scores from posting text only, and `/apply` re-evaluates with company research before anything is drafted.
+- **Subject:** `Job Ranking Digest - <N> Strong/Good Fit - YYYY-MM-DD` (today's date, N = however many rows this run actually has).
+- **Body:** an HTML table, same columns as the Step 5 shortlist table (Score, Verdict, Title, Company, Location, Deadline, Link), one row per job in score order - **Score is a mandatory column, never omitted**. Below the table, one line per job with its score, top strength, and top gap (`strengths[0]` / `gaps[0]` from `seen_jobs.json`) so the email is useful without opening the app, e.g. `**<Title> at <Company> (Score: <N>)** - <strength>; gap: <gap>`. Include the same triage caveat Step 5 states: these are triage scores from posting text only, and `/apply` re-evaluates with company research before anything is drafted.
 - If the connected send tool only accepts plain-text bodies, render the same content as a plain-text aligned table instead of HTML - never skip the send just because HTML isn't supported.
 
 ### Step 6c: Send and confirm
