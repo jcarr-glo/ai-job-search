@@ -122,3 +122,14 @@ All errors are written to **stderr** as `{ "error": "...", "code": "..." }` and 
   comes later, not at discovery time.
 - A company whose board legitimately has zero current openings returns an empty result,
   not an error — don't read "0 results for --company X" as the integration being broken.
+- **Change-detection cache.** Each company's job roster is cached on disk for an hour, so
+  running several title queries back to back (a typical `/scrape` sweep) fetches each
+  board once instead of once per query. For Greenhouse companies specifically, a
+  `--company` full-description fetch is skipped entirely whenever that company's roster
+  (ids/titles/locations/dates) hasn't changed since the last time descriptions were
+  fetched — a board with no postings added, removed, or moved never re-downloads
+  descriptions it already has. The cache lives at `cli/.cache/board-cache.json`
+  (gitignored, local runtime state) and self-heals if deleted or corrupted. It is a
+  change-*detection* cache, not a content-diff: an in-place edit to an existing
+  posting's body text (e.g. a salary tweak) with no id/title/location/date change won't
+  be caught until something else on that board shifts.

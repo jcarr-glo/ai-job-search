@@ -232,12 +232,32 @@ LinkedIn search links:
 - Role/team-peer search link, for the warm-intro / informational-outreach path
 ```
 
-After presenting, ask:
+### Step 5.5: Auto-Rank New Matches (automatic)
+
+Immediately after presenting the table above - before asking the user anything -
+automatically run the `/rank` workflow (`.claude/commands/rank.md`) with no arguments.
+This scores every `status: "new"` entry in `seen_jobs.json` (this run's new finds, plus
+any older backlog `/rank` hasn't reached yet) and turns each into `ranked` or `expired`.
+This replaces the old "suggest `/rank` once 8+ new jobs turn up" behavior - ranking now
+runs every time, on small batches, so unscored postings never pile into a large backlog
+the way they used to.
+
+Skip this step only when Step 4 added zero jobs with `status: "new"` this run (every
+candidate was either a duplicate or a low-fit `skipped` entry).
+
+`/rank` enforces its own backlog cap (see its Step 1) and works oldest-first when there's
+more queued than one run can cover - if it reports jobs still waiting, that's expected
+and gets picked up by the next `/scrape`'s auto-rank, not something to retry here.
+
+Present `/rank`'s own shortlist (its Step 5 output) as the actionable result of this run,
+in place of a second raw listing - the quick Step 3 fit table above is still useful as an
+at-a-glance first pass, but the ranked shortlist is what "Want me to evaluate any of
+these" below should point at.
+
+After presenting `/rank`'s shortlist, ask:
 > "Want me to evaluate any of these in detail? Just give me the number(s)."
 
-If the user picks a number, invoke the **job-application-assistant** skill workflow (fit evaluation first, then CV + cover letter if approved).
-
-If the run found many new jobs (roughly 8+), also suggest `/rank` - it batch-scores all new postings against the full fit framework and returns a ranked shortlist, which beats eyeballing a long table. (`/rank` sets the `ranked` and `expired` status values in `seen_jobs.json`; treat both as already-seen for dedup purposes.)
+If the user picks a number, invoke the **job-application-assistant** skill workflow (fit evaluation first, then CV + cover letter if approved). (`/rank` sets the `ranked` and `expired` status values in `seen_jobs.json`; treat both as already-seen for dedup purposes.)
 
 ### Step 6: Update Tracker (Optional)
 

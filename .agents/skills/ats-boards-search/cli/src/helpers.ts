@@ -7,6 +7,7 @@
 
 import { readFileSync } from "fs"
 import { join } from "path"
+import { hashJobList, getCachedLightweight, setCachedLightweight, getCachedFull, setCachedFull } from "./cache.js"
 
 const UA = "Mozilla/5.0 (compatible; ats-boards-search-cli/1.0)"
 const COMPANIES_PATH = join(import.meta.dir, "../../companies.json")
@@ -176,18 +177,40 @@ async function fetchAshby(company: Company): Promise<JobCard[]> {
 
 /** Fetch one company's job list, normalized to JobCard[]. `content` requests full
  * descriptions where the ATS needs an explicit flag (Greenhouse only — Lever and
- * Ashby always include the description in their list response). */
+ * Ashby always include the description in their list response).
+ *
+ * Change-detection cache: a company's lightweight roster (id/title/location/date)
+ * is cached for an hour so the several title queries one /scrape run typically
+ * fires don't each re-fetch the same board. For Greenhouse, the separately-cached
+ * full-description fetch is skipped entirely whenever the lightweight roster's
+ * hash hasn't moved since the last time it was paid for — a board with zero
+ * postings added/removed/moved never re-downloads descriptions it already has. */
 export async function fetchCompanyJobs(company: Company, opts: { content?: boolean } = {}): Promise<JobCard[]> {
-  switch (company.ats) {
-    case "greenhouse":
-      return fetchGreenhouse(company, !!opts.content)
-    case "lever":
-      return fetchLever(company)
-    case "ashby":
-      return fetchAshby(company)
-    default:
-      return []
+  if (company.ats !== "greenhouse") {
+    // Lever/Ashby have no separate lightweight mode - the list response already
+    // carries full descriptions, so one cached fetch satisfies both call shapes.
+    const cached = getCachedLightweight(company.slug)
+    if (cached) return cached.jobs
+    const jobs = company.ats === "lever" ? await fetchLever(company) : company.ats === "ashby" ? await fetchAshby(company) : []
+    setCachedLightweight(company.slug, jobs, hashJobList(jobs))
+    return jobs
   }
+
+  let light = getCachedLightweight(company.slug)
+  if (!light) {
+    const jobs = await fetchGreenhouse(company, false)
+    const hash = hashJobList(jobs)
+    setCachedLightweight(company.slug, jobs, hash)
+    light = { hash, jobs }
+  }
+  if (!opts.content) return light.jobs
+
+  const cachedFull = getCachedFull(company.slug, light.hash)
+  if (cachedFull) return cachedFull
+
+  const fullJobs = await fetchGreenhouse(company, true)
+  setCachedFull(company.slug, fullJobs, light.hash)
+  return fullJobs
 }
 
 /** Run async work over a list with bounded concurrency, so a broad search across

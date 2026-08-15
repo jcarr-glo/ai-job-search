@@ -47,6 +47,14 @@ bun run src/cli.ts detail "https://job-boards.greenhouse.io/kalshi/jobs/76267090
 See `../SKILL.md` for the full flag reference and `../url-reference.md` for the three
 ATS APIs' endpoint shapes and how to add a new company to the registry.
 
+## Change-detection cache
+
+`.cache/board-cache.json` (gitignored) caches each company's job roster for an hour and,
+for Greenhouse companies, skips the heavier `--company` full-description fetch entirely
+when that company's roster hash hasn't moved since the last time descriptions were
+fetched. See `../SKILL.md`'s Notes section for the details and its known limitation
+(roster-shape changes are detected; in-place text edits to an unchanged posting are not).
+
 ## Search flags
 
 | Flag | Alias | Description |

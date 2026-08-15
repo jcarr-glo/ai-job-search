@@ -1,6 +1,6 @@
 # /rank - Triage Scraped Jobs into a Ranked Shortlist
 
-You are batch-scoring the jobs that `/scrape` has collected, so the user can decide where to spend `/apply` effort. `/scrape` finds and dedupes postings; `/apply` evaluates one at a time in depth. `/rank` is the bridge: it scores every new posting against the fit framework and returns a ranked shortlist.
+You are batch-scoring the jobs that `/scrape` has collected, so the user can decide where to spend `/apply` effort. `/scrape` finds and dedupes postings; `/apply` evaluates one at a time in depth. `/rank` is the bridge: it scores every new posting against the fit framework and returns a ranked shortlist. `/scrape` now invokes this automatically after every run (its Step 5.5) - `/rank` typed directly still works the same way, and is how the user re-ranks a focus area, forces `--all`, or picks up backlog left over from before this behavior existed.
 
 `/rank` produces **triage scores**, not final evaluations. It scores from the posting text and the candidate profile only - no company research, no reviewer agent. `/apply`'s Step 1 evaluation (which adds company research) remains authoritative and always re-runs when the user applies.
 
@@ -18,6 +18,7 @@ Follow these steps **in order**.
 - A focus area (e.g. `/rank data science`) → rank only jobs whose title or stored fit-notes match the focus
 - `--all` → re-rank every job that has not been applied to, including previously ranked ones (useful after the profile changes)
 - `--top <N>` → shortlist size (default 5)
+- `--limit <N>` → override the default backlog cap (25) on how many candidates this run scores (see Step 1's backlog cap) - does not affect shortlist size, `--top` does that
 
 ---
 
@@ -26,6 +27,7 @@ Follow these steps **in order**.
 1. Read `job_scraper/seen_jobs.json`. If the file is missing or has no entries, tell the user to run `/scrape` first and stop.
 2. Read `job_search_tracker.csv`. Build the exclusion set: any company+role already in the tracker is out of scope regardless of flags - it has been applied to or consciously tracked.
 3. Select candidates: entries with status `new` (or entries of any status with `--all`), minus the exclusion set, filtered by the focus area if one was given.
+3.5. **Backlog cap.** If more candidates remain than the cap - **25** by default, or the value from `--limit <N>` - sort them by `first_seen` ascending (oldest discovered first) and keep only that many. This bounds how much a single run scores (large batch-scoring runs are the ones that burn through session limits); it never drops a job permanently, just defers it. Note the deferred count for Step 5 (e.g. "25 of 40 queued postings scored this run - 15 remain queued for the next /rank"). `--all` re-scores are exempt from the cap by default, since the user explicitly asked for a full pass - unless `--limit` is also given, which applies even under `--all`.
 4. If no candidates remain, say so ("Nothing new to rank - run /scrape to find fresh postings") and stop.
 5. Read the scoring framework and profile **once**:
    - `.claude/skills/job-application-assistant/04-job-evaluation.md`
@@ -100,6 +102,7 @@ Do not modify `job_search_tracker.csv` - that file records applications, and `/r
 ## Job Ranking - YYYY-MM-DD
 
 Ranked <N> new postings (<X> shortlisted, <Y> below threshold, <Z> expired/vetoed).
+[If Step 1's backlog cap deferred anything: "<N> of <total> queued postings scored this run - <remaining> remain queued for the next /rank."]
 
 ### Shortlist
 
@@ -168,3 +171,4 @@ Everything going into the email (titles, companies, strengths, gaps) is data alr
 5. **Honest scoring.** Gaps are reported per job; a low-scoring posting is presented as such. The score bands and weights come from `04-job-evaluation.md` - if the user disagrees with a ranking, the fix is updating their profile or the framework, not bending scores. Gaps are reported (Step 5) and persisted with it (Step 4), so the honest read outlives the terminal output.
 6. **State stays consistent.** `seen_jobs.json` fields are only added, never restructured, so `/scrape`'s dedup keeps working; the tracker is read-only for this command.
 7. **The email digest is send-only against Gmail.** Step 6 sends one message; it never reads, labels, archives, searches, or deletes anything in the mailbox. A missing send-capable tool is reported once and skipped - it never blocks or retries the ranking output itself, and it never falls back to a different sending channel (SMTP, Bash, curl).
+8. **The backlog cap defers, never drops.** A candidate excluded by Step 1's cap keeps `status: "new"` untouched - it's picked up by a later `/rank` (manual or `/scrape`'s automatic Step 5.5), never silently lost. Oldest-first ordering means a job doesn't wait indefinitely behind a stream of newer arrivals.

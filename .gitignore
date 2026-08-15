@@ -103,6 +103,8 @@ upskill/*.md
 .agents/**/node_modules/
 .agents/**/*.log
 .agents/usage/
+# ats-boards-search's on-disk change-detection cache (local runtime state, not source)
+.agents/**/.cache/
 
 # Brainstorm mockups (superpowers visual companion) - never ship
 .superpowers/
