@@ -9,7 +9,7 @@ framework_version: 1.1.1
 
 ## Identity
 - **Name:** Jeramiah Carr
-- **Location:** Hickory, NC, USA
+- **Location:** Charlotte, NC, USA
 - **Phone:** 828.320.9544
 - **Email:** jcarr@lmhglo.com
 - **LinkedIn:** linkedin.com/in/jeramiahcarr
@@ -42,11 +42,15 @@ Remote
 - Led technology strategy, architecture, and operations for the first SEC-registered Alternative Trading System (ATS) supporting overnight U.S. equities trading (8PM-4AM ET) under FINRA/SEC compliance
 - Reported directly to the CEO; led a 9-person technology organization (infrastructure, cloud ops, engineering, client onboarding/support)
 - Helped scale overnight trading volume 10x, from approximately $100M to over $1B in nightly notional value, supporting broker-dealers, market makers, and institutional participants across North America, Europe, and Asia
-- Directed the matching engine migration to MEMX and clearing migration from Velox to RQD Clearing; implemented a fully redundant disaster recovery site
+- Directed the matching engine migration to MEMX and clearing migration from Velox to RQD Clearing (supporting DTCC-aligned tokenized-equities initiatives); implemented a fully redundant disaster recovery site
 - Implemented the organization's Agile practice (Jira, Confluence); project-managed initiatives in Microsoft Project and Jira
 - Designed high-availability trading infrastructure (TNS-hosted Linux, redundant hot-hot architecture, MySQL Azure, Datadog observability, automated Git-based deployment)
 - Led adoption of enterprise AI tools (ChatGPT, Claude Code), establishing AI governance policy for a regulated trading venue
-- Oversaw FINRA/Fair Access/Reg SCI compliance initiatives and implemented Eventus for market surveillance
+- Oversaw FINRA/Fair Access/Reg SCI compliance initiatives and implemented Eventus for market surveillance; used VeriFIX for matching-engine QA and test case creation, validating FIX order flow ahead of production releases
+- Engineered Python tooling on the C++ QuickFIX engine for real-time data ingestion off the matching engine, and a QuickFIX-based load/latency test harness that drove millions of order messages to validate platform throughput before releases
+- Built and managed pre/post-market technology operations: corporate actions (including ICE Activ setup), reporting, billing, market data distribution, FIX connectivity, drop-copy ingestion, NYSE Kafka publishing, and NetSuite integrations
+- Led Market Ops functions including onboarding process definition and resolution of advanced customer inquiries for broker-dealers and institutional participants
+- Strengthened security posture (Okta MFA, enterprise password management, TNS firewall protections, mobile communication controls supporting SMARSH compliance) and managed critical operational incidents, coordinating regulator/international-client communications while implementing packet-capture monitoring and data-resilience controls
 - Performed hands-on Python engineering and MySQL database/table design supporting trading operations
 
 ### Technology & Data Consultant - Independent / Founder-Led Engagements (Feb 2020 - Sept 2022)
@@ -99,7 +103,7 @@ Moline, IL / Des Moines, IA / Charlotte, NC
 - Healthcare analytics, manufacturing analytics, commercial real estate SaaS
 
 ### Software & Tools
-AWS, Azure, MySQL, PostgreSQL, Oracle, IBM DB2, IBM Netezza, Amazon Redshift, Tableau & Tableau Server, Power BI, SAP Business Objects, Google Analytics, Adobe Analytics, Informatica ETL, Jira, Confluence, Microsoft Project, Datadog, Okta, Eventus, VeriFIX, WordPress/WooCommerce, OpenCart
+AWS, Azure, MySQL, PostgreSQL, Oracle, IBM DB2, IBM Netezza, Amazon Redshift, Tableau & Tableau Server, Power BI, SAP Business Objects, Google Analytics, Adobe Analytics, Informatica ETL, Jira, Confluence, Microsoft Project, Datadog, Okta, Eventus, VeriFIX, ICE Activ, QuickFIX (C++), NetSuite, WordPress/WooCommerce, OpenCart
 
 ## Publications
 <!-- None found in source documents. -->

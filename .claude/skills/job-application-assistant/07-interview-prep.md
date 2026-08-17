@@ -51,6 +51,13 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 **R:** Delivered a firm-wide, cross-asset real-time data platform and reporting capability adopted across multiple trading desks.
 **Use for:** "Tell me about aligning stakeholders with competing priorities", "Describe translating business requirements into technical architecture", "Tell me about working in a highly regulated industry"
 
+### 6. Load/latency testing a live matching engine before production releases (technical rigor, pre-production validation)
+**S:** Blue Ocean's matching-engine and platform releases needed to withstand real overnight trading volume without knowing in advance how throughput and latency would hold up under load.
+**T:** As the engineer responsible for release validation, needed a repeatable way to prove platform performance before code reached production.
+**A:** Engineered Python tooling on the C++ QuickFIX engine for real-time data ingestion directly off the matching engine, then built a QuickFIX-based load-testing harness in Python that drove millions of order messages at the matching engine to measure throughput and latency ahead of each release.
+**R:** Gave the team a concrete, repeatable performance gate before shipping to a live, regulated overnight trading venue, catching throughput/latency issues pre-release rather than in production.
+**Use for:** "Tell me about how you validate a system before it goes live", "Describe a time you built your own testing tooling", "Tell me about ensuring reliability in a high-stakes environment"
+
 <!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
 
 ## Common Tough Questions

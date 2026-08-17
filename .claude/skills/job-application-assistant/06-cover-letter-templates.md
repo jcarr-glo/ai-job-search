@@ -123,6 +123,22 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 | `\closing{text}` | Closing line |
 | `\signature{name}` | Printed name below signature |
 
+## Reusable Paragraph Modules (from master cover letter)
+
+Extracted from `documents/cv/master_cover_letter.md` by `/setup` Path A. These are **phrasing references, never fact sources** - like the `05-cv-templates.md` profile statements, every factual claim still comes from `01-candidate-profile.md` before drafting. Swap the relevant module in for the body paragraph that introduces the bullet list (Paragraph 4 in the Document Structure template above), in the same first-person, non-contracted voice, then trim elsewhere to stay inside the 250-300 word budget.
+
+**Module A - CTO / VP of Engineering:**
+> I lead engineering the way I lead everything: with an operator's discipline. At Blue Ocean I reported directly to the CEO, ran a nine-person technology organization, and project-managed the initiatives that could not fail - a matching engine migration to MEMX, a clearing transition from Velox to RQD, and the stand-up of a fully redundant disaster recovery site. I built the Agile practice from scratch and owned uptime, security, and regulatory technology obligations end to end. Small teams can run big platforms when the systems, the priorities, and the people are right.
+
+**Module B - VP of Data & Analytics / BI Delivery:**
+> Data is where I started and where I still do my best work. I architected a firm-wide time-series repository for fixed income trading at Wells Fargo; built four data repositories and more than twenty-two executive dashboards for Cancer Treatment Centers of America; grew a one-person analytics function into an eight-person data organization with P&L ownership at IMS; and delivered John Deere's first enterprise data mart. I know what it takes to make data governed, trusted, and - hardest of all - actually adopted.
+
+**Module C - AI Strategy / AI Leadership:**
+> I pair a formal machine learning education with production reality. I have shipped models that did real work - a neural network mapping charts of accounts across client datasets, renewal-probability models at John Deere - and at Blue Ocean I established the AI governance policies that let a regulated trading venue adopt ChatGPT and Claude Code responsibly. I treat AI as an executive discipline: use-case selection, governance, data readiness, and change management. The models are the easy part.
+
+**Module D - Capital Markets / FinTech:**
+> I know regulated markets from the inside: SEC registration and Reg SCI readiness, FINRA reporting, Fair Access, matching engine migrations, clearing transitions, corporate actions, FIX connectivity, and trade surveillance. I have built and operated the technology behind a live national market - and I understand the difference between software that works and software that withstands a regulator's audit.
+
 ## Tailoring Guidelines
 
 ### Salutation
