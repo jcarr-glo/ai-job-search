@@ -79,15 +79,17 @@ site:dice.com "Chief Technology Officer" OR "VP Engineering"
 site:efinancialcareers.com "Head of Technology" OR "Chief Technology Officer"
 ```
 
-### Priority 4: Technology Consulting / Fractional Leadership
+### Priority 4: Data, SQL, Reporting & Fractional CTO
 
-Adjacent roles you could pivot into.
+Broader net combining hands-on data roles (SQL, BI/reporting, analytics work drawing on your Tableau/Power BI, SQL, and data architecture background) with fractional/consulting CTO roles you could pivot into.
 
 ```
+site:linkedin.com/jobs "Data Analyst" OR "BI Analyst" SQL Remote
+site:linkedin.com/jobs "Reporting Analyst" OR "Business Intelligence" Tableau OR "Power BI"
+site:linkedin.com/jobs "SQL Developer" OR "Data Engineer" Remote
+site:theladders.com "Director of Reporting" OR "Head of Business Intelligence" Remote
 site:linkedin.com/jobs "Fractional CTO" OR "Technology Consultant" FinTech
-site:linkedin.com/jobs "Technology Advisor" trading OR capital markets
 site:wellfound.com "Fractional CTO" OR "Technology Advisor" Remote
-site:weworkremotely.com "Engineering Manager" OR "CTO" Remote
 ```
 
 ### Priority 5: Broader Capital Markets / FinTech Technology
